@@ -6,10 +6,12 @@ import lv.andris.restful.loan.app.core.requests.loan.AddLoanRequest;
 import lv.andris.restful.loan.app.core.responses.loan.AddLoanResponse;
 import lv.andris.restful.loan.app.core.responses.CoreError;
 import lv.andris.restful.loan.app.core.services.loan.validators.AddLoanValidator;
+import lv.andris.restful.loan.app.core.services.requestlimiter.Validators.RequestLimitValidator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
 @Component
@@ -22,11 +24,19 @@ public class AddLoanService {
     @Autowired
     private AddLoanValidator validator;
 
-    public AddLoanResponse execute(AddLoanRequest request) {
+    @Autowired
+    private RequestLimitValidator limitValidator;
+
+    public AddLoanResponse execute(AddLoanRequest request, HttpServletRequest servletRequest) {
+
+
+        List<CoreError> limits = limitValidator.validate(servletRequest);
         List<CoreError> errors = validator.validate(request);
 
         if(!errors.isEmpty()) {
             return new AddLoanResponse(errors);
+        } else if(!limits.isEmpty()) {
+            return new AddLoanResponse(limits);
         }
 
         Loan loan = new Loan(request.getLoan_amount(), request.getLoan_term(), request.getFirst_name(), request.getLast_name(), request.getPersonal_id());

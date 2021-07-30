@@ -29,6 +29,28 @@
                 <constraints nullable="false"/>
             </column>
         </createTable>
+        <insert
+                schemaName="loandb"
+                 tableName="loans">
+            <column  name="loan_id"  value="1"/>
+            <column  name="loan_amount"  value="2500.00"/>
+            <column  name="loan_term"  value="2022-05-11"/>
+            <column  name="first_name"  value="Andris"/>
+            <column  name="last_name"  value="Treshutins"/>
+            <column  name="personal_id"  value="20053-123456"/>
+            <column  name="is_approved"  valueBoolean="true"/>
+        </insert>
+        <insert
+                schemaName="loandb"
+                tableName="loans">
+            <column  name="loan_id"  value="2"/>
+            <column  name="loan_amount"  value="2500.00"/>
+            <column  name="loan_term"  value="2022-05-11"/>
+            <column  name="first_name"  value="Andris"/>
+            <column  name="last_name"  value="Treshutins"/>
+            <column  name="personal_id"  value="20053-123456"/>
+            <column  name="is_approved"  valueBoolean="false"/>
+        </insert>
         <rollback>
             <dropTable tableName="loans"
                        cascadeConstraints="true"/>

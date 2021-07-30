@@ -15,7 +15,7 @@ public class SearchLoansResponse extends CoreResponse {
         this.loans = loans;
     }
 
-    public List<Loan> getLoans() {
+    public List<Loan> getLoan() {
         return loans;
     }
 }

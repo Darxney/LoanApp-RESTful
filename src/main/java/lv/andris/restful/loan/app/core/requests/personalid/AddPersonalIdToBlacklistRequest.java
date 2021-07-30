@@ -4,11 +4,11 @@ public class AddPersonalIdToBlacklistRequest {
 
     private String personal_id;
 
-    AddPersonalIdToBlacklistRequest() {
+    public AddPersonalIdToBlacklistRequest() {
 
     }
 
-    AddPersonalIdToBlacklistRequest(String personal_id) {
+    public AddPersonalIdToBlacklistRequest(String personal_id) {
         this.personal_id = personal_id;
 
     }

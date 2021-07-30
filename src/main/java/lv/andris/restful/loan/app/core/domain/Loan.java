@@ -1,6 +1,8 @@
 package lv.andris.restful.loan.app.core.domain;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import javax.persistence.*;
 import java.math.BigDecimal;
 import java.sql.Date;
@@ -8,6 +10,7 @@ import java.util.Objects;
 
 @Entity
 @Table(name = "loans")
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class Loan {
 
     @Id
@@ -43,6 +46,34 @@ public class Loan {
         this.first_name = first_name;
         this.last_name = last_name;
         this.personal_id = personal_id;
+    }
+
+    public Loan(BigDecimal loan_amount, Date loan_term, String first_name, String last_name, String personal_id, boolean is_approved) {
+        this.loan_amount = loan_amount;
+        this.loan_term = loan_term;
+        this.first_name = first_name;
+        this.last_name = last_name;
+        this.personal_id = personal_id;
+        this.is_approved = is_approved;
+    }
+
+    public Loan(Long loan_id ,BigDecimal loan_amount, Date loan_term, String first_name, String last_name, String personal_id) {
+        this.loan_id = loan_id;
+        this.loan_amount = loan_amount;
+        this.loan_term = loan_term;
+        this.first_name = first_name;
+        this.last_name = last_name;
+        this.personal_id = personal_id;
+    }
+
+    public Loan(Long loan_id ,BigDecimal loan_amount, Date loan_term, String first_name, String last_name, String personal_id, boolean is_approved) {
+        this.loan_id = loan_id;
+        this.loan_amount = loan_amount;
+        this.loan_term = loan_term;
+        this.first_name = first_name;
+        this.last_name = last_name;
+        this.personal_id = personal_id;
+        this.is_approved = is_approved;
     }
 
     public Long getLoan_id() {

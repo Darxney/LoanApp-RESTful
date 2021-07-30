@@ -18,7 +18,7 @@ public class AddPersonalIdToBlacklistResponse extends CoreResponse {
         this.newPersonalId = newPersonalId;
     }
 
-    public PersonalId getNewPersonalId() {
+    public PersonalId getPersonalId() {
         return newPersonalId;
     }
 

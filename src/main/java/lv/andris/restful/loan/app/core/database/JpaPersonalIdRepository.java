@@ -3,7 +3,6 @@ package lv.andris.restful.loan.app.core.database;
 import lv.andris.restful.loan.app.core.domain.PersonalId;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
-import org.springframework.data.repository.query.Param;
 
 import java.util.List;
 

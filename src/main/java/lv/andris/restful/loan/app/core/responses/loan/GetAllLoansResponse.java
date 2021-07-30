@@ -12,7 +12,7 @@ public class GetAllLoansResponse {
         this.loans = loans;
     }
 
-    public List<Loan> getLoans() {
-        return  loans;
+    public List<Loan> getLoan() {
+        return loans;
     }
 }

@@ -3,8 +3,8 @@ package lv.andris.restful.loan.app.core.responses;
 import java.util.List;
 
 public abstract class CoreResponse {
+
     private List<CoreError> errors;
-    private CoreError error;
 
     public CoreResponse() { }
 

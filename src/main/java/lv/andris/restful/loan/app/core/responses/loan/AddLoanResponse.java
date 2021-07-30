@@ -18,7 +18,7 @@ public class AddLoanResponse extends CoreResponse {
         this.newLoan = newLoan;
     }
 
-    public Loan getNewLoan() {
+    public Loan getLoan() {
         return newLoan;
     }
 

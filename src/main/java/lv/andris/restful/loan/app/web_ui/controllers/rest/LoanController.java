@@ -1,16 +1,22 @@
 package lv.andris.restful.loan.app.web_ui.controllers.rest;
 
 import lv.andris.restful.loan.app.core.requests.loan.AddLoanRequest;
+import lv.andris.restful.loan.app.core.requests.loan.ChangeLoanStatusRequest;
 import lv.andris.restful.loan.app.core.requests.loan.GetAllLoansRequest;
 import lv.andris.restful.loan.app.core.requests.loan.SearchLoansRequest;
+import lv.andris.restful.loan.app.core.responses.loan.ChangeLoanStatusResponse;
 import lv.andris.restful.loan.app.core.responses.loan.AddLoanResponse;
 import lv.andris.restful.loan.app.core.responses.loan.GetAllLoansResponse;
 import lv.andris.restful.loan.app.core.responses.loan.SearchLoansResponse;
 import lv.andris.restful.loan.app.core.services.loan.AddLoanService;
+import lv.andris.restful.loan.app.core.services.loan.ChangeLoanStatusService;
 import lv.andris.restful.loan.app.core.services.loan.GetAllLoansService;
 import lv.andris.restful.loan.app.core.services.loan.SearchLoansService;
+import lv.andris.restful.loan.app.core.services.requestlimiter.AddRequestLimiterService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+
+import javax.servlet.http.HttpServletRequest;
 
 @RestController
 @RequestMapping("/loan")
@@ -25,14 +31,25 @@ public class LoanController {
     @Autowired
     private SearchLoansService searchLoansService;
 
+    @Autowired
+    private ChangeLoanStatusService changeLoanStatusService;
 
+    @Autowired
+    private AddRequestLimiterService addRequestLimiterService;
+
+
+    //apply for loan
     @PostMapping(path = "/",
             consumes = "application/json",
             produces = "application/json")
-    public AddLoanResponse addLoan(@RequestBody AddLoanRequest request) {
-        return addLoanService.execute(request);
+    public AddLoanResponse addLoan(@RequestBody AddLoanRequest request, HttpServletRequest servletRequest) {
+
+
+        addRequestLimiterService.execute(servletRequest);
+        return addLoanService.execute(request, servletRequest);
     }
 
+    //list all loans
     @GetMapping(path = "/getAllLoans", produces = "application/json")
     public GetAllLoansResponse response() {
         GetAllLoansRequest request = new GetAllLoansRequest();
@@ -54,6 +71,16 @@ public class LoanController {
 
         SearchLoansRequest request = new SearchLoansRequest(is_approved, personal_id);
         return searchLoansService.execute(request);
+
+    }
+
+    //Change loan approved status
+    @PutMapping(path = "/changeLoanApprovedStatus", produces = "application/json")
+    public ChangeLoanStatusResponse changeLoanStatusResponse(@RequestParam Long loan_id,
+                                                             @RequestParam boolean is_approved) {
+
+        ChangeLoanStatusRequest request = new ChangeLoanStatusRequest(loan_id, is_approved);
+        return changeLoanStatusService.execute(request);
 
     }
 
