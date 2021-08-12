@@ -1,5 +1,5 @@
 # LoanApp-RESTful
-Application was Developed using IntelliJ idea IDE and Mysql database.
+Application was Developed on Java 14.0.2 using IntelliJ idea IDE and Mysql database.
 Usage:
 1. IF you are using Mysql Open mysql workbench and execute this query: CREATE SCHEMA IF NOT EXISTS `loandb`; 
 the rest of the database setup will be completed by the application through liquibase 
