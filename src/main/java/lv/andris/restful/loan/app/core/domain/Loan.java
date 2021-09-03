@@ -16,6 +16,7 @@ public class Loan {
     @Id
     @Column(name = "loan_id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    //correct namings loanId
     private Long loan_id;
 
     @Column(name = "loan_amount",  nullable = false)
@@ -24,6 +25,7 @@ public class Loan {
     @Column(name = "loan_term",  nullable = false)
     private Date loan_term;
 
+    //names and personal id can be in a different domain
     @Column(name = "first_name",  nullable = false)
     private String first_name;
 
@@ -47,6 +49,7 @@ public class Loan {
         this.last_name = last_name;
         this.personal_id = personal_id;
     }
+    // there should be one constructor all else should be done through setters
 
     public Loan(BigDecimal loan_amount, Date loan_term, String first_name, String last_name, String personal_id, boolean is_approved) {
         this.loan_amount = loan_amount;
@@ -56,7 +59,7 @@ public class Loan {
         this.personal_id = personal_id;
         this.is_approved = is_approved;
     }
-
+/*
     public Loan(Long loan_id ,BigDecimal loan_amount, Date loan_term, String first_name, String last_name, String personal_id) {
         this.loan_id = loan_id;
         this.loan_amount = loan_amount;
@@ -74,7 +77,7 @@ public class Loan {
         this.last_name = last_name;
         this.personal_id = personal_id;
         this.is_approved = is_approved;
-    }
+    }*/
 
     public Long getLoan_id() {
         return loan_id;

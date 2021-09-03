@@ -5,6 +5,7 @@ import java.util.Objects;
 
 @Entity
 @Table(name = "personal_id_blacklist")
+//class name should be blacklistEntry or blacklistedPersonalId etc.
 public class PersonalId {
 
     @Id

@@ -21,6 +21,7 @@ public interface JpaRequestLimiterRepository extends JpaRepository<RequestLimite
     @Query("Select r.requests_made From RequestLimiter r Where country = :country")
     int getRequestsMade(@Param("country") String country);
 
+    //new entry for each request is better
     @Modifying
     @Query("UPDATE RequestLimiter AS r SET r.requests_made = requests_made + 1 WHERE r.country = :country")
     int incrementRequestCount(@Param("country") String country);

@@ -56,9 +56,11 @@ public class AddLoanValidator {
     private Optional<CoreError> validatePersonalId(AddLoanRequest request) {
         if (request.getPersonal_id() == null || request.getPersonal_id().isEmpty()) {
                 return Optional.of(new CoreError("Personal id", "Must not be empty"));
-        }else if(!request.getPersonal_id().matches("\\d\\d\\d\\d\\d\\-\\d\\d\\d\\d\\d\\d") ) {
+                //regex should be somewhat like this
+        }else if(!request.getPersonal_id().matches("\\d{5}\\-\\d{6}") ) {
             return Optional.of(new CoreError("Personal id", "received invalid data"));
-        }else if((repository.getBlackList().toString().contains(request.getPersonal_id()))) {
+            //better way of comparing
+        }else if((repository.getBlackList().stream().anyMatch((Personal_id)->Personal_id.getPersonal_id().equals(request.getPersonal_id())))) {
             return Optional.of(new CoreError("Personal id", "This person is blacklisted (Personal id: " + request.getPersonal_id() + ")"));
         }
 

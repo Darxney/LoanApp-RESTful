@@ -30,11 +30,14 @@ public class AddRequestLimiterService {
 
         RequestLimiter requestLimiter = new RequestLimiter(countryCode,  1, expiryTime);
 
-        if(repository.getExpiry(countryCode) == null){
+        Timestamp expiry = repository.getExpiry(countryCode);
+
+        if(expiry == null){
             repository.save(requestLimiter);
-        } else if(Timestamp.valueOf(LocalDateTime.now()).after(repository.getExpiry(countryCode))) {
+        } else if(Timestamp.valueOf(LocalDateTime.now()).after(expiry)) {
             repository.deleteRequestLimiterForCountry(countryCode);
             repository.save(requestLimiter);
+            //can be done with setters
         } else if(repository.getRequestLimiterByCountry(countryCode).toString().contains(countryCode)) {
             repository.incrementRequestCount(countryCode);
         }

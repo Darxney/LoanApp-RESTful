@@ -8,6 +8,7 @@ import java.util.List;
 
 public interface JpaPersonalIdRepository extends JpaRepository<PersonalId, String> {
 
+        //memory will be depleted with too many entries
         @Query("SELECT p From PersonalId p")
         List<PersonalId> getBlackList();
 }
