@@ -4,6 +4,10 @@ public class CoreError {
     private String field;
     private String message;
 
+    public CoreError() {
+
+    }
+
     public CoreError(String field, String message) {
         this.field = field;
         this.message = message;

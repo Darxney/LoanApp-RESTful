@@ -10,22 +10,22 @@ public class PersonalId {
 
     @Id
     @Column(name = "personal_id", nullable = false)
-    private String personal_id;
+    private String personalId;
 
     public PersonalId() {
 
     }
 
     public PersonalId(String personal_id) {
-        this.personal_id = personal_id;
+        this.personalId = personal_id;
     }
 
     public String getPersonal_id() {
-        return personal_id;
+        return personalId;
     }
 
     public void setPersonal_id(String personal_id) {
-        this.personal_id = personal_id;
+        this.personalId = personal_id;
     }
 
     @Override
@@ -33,18 +33,18 @@ public class PersonalId {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         PersonalId that = (PersonalId) o;
-        return personal_id.equals(that.personal_id);
+        return personalId.equals(that.personalId);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(personal_id);
+        return Objects.hash(personalId);
     }
 
     @Override
     public String toString() {
         return "PersonalId{" +
-                "personal_id='" + personal_id + '\'' +
+                "personal_id='" + personalId + '\'' +
                 '}';
     }
 }

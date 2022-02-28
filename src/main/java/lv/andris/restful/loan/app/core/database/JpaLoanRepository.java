@@ -16,17 +16,17 @@ public interface JpaLoanRepository extends JpaRepository<Loan, Long> {
         List<Loan> getAllLoans();
 
         //list all approved/unapproved loans
-        @Query("SELECT l FROM Loan l WHERE is_approved = :is_approved")
+        @Query("SELECT l FROM Loan l WHERE isApproved = :is_approved")
         List<Loan> getLoansByApprovedStatus(@Param("is_approved") boolean is_approved);
 
         //list all approved/unapproved loans by user
-        @Query("SELECT l FROM Loan l WHERE is_approved = :is_approved AND personal_id = :personal_id")
+        @Query("SELECT l FROM Loan l WHERE isApproved = :is_approved AND personalId = :personal_id")
         List<Loan> getApprovedOrUnapprovedLoansByPersonalId(@Param("is_approved") boolean is_approved,@Param("personal_id") String personal_id);
 
 
         //Change loan approved status
         @Modifying
-        @Query("UPDATE Loan AS l SET l.is_approved = :is_approved WHERE l.loan_id = :loan_id")
+        @Query("UPDATE Loan AS l SET l.isApproved = :is_approved WHERE l.loanId = :loan_id")
         int changeLoanStatus(@Param("loan_id") Long loan_id, @Param("is_approved") boolean is_approved);
 
 

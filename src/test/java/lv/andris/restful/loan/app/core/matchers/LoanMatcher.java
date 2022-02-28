@@ -8,26 +8,26 @@ import java.sql.Date;
 
 public class LoanMatcher implements ArgumentMatcher<Loan> {
 
-    private BigDecimal loan_amount;
-    private Date loan_term;
-    private String first_name;
-    private String last_name;
-    private String personal_id;
+    private BigDecimal loanAmount;
+    private Date loanTerm;
+    private String firstName;
+    private String lastName;
+    private String personalId;
 
-    public LoanMatcher(BigDecimal loan_amount, Date loan_term, String first_name, String last_name, String personal_id) {
-        this.loan_amount = loan_amount;
-        this.loan_term = loan_term;
-        this.first_name = first_name;
-        this.last_name = last_name;
-        this.personal_id = personal_id;
+    public LoanMatcher(BigDecimal loanAmount, Date loanTerm, String firstName, String lastName, String personalId) {
+        this.loanAmount = loanAmount;
+        this.loanTerm = loanTerm;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.personalId = personalId;
     }
 
     @Override
     public boolean matches(Loan loan) {
-        return loan.getLoan_amount().equals(loan_amount)
-                && loan.getLoan_term().equals(loan_term)
-                && loan.getFirst_name().equals(first_name)
-                && loan.getLast_name().equals(last_name)
-                && loan.getPersonal_id().equals(personal_id);
+        return loan.getLoanAmount().equals(loanAmount)
+                && loan.getLoanTerm().equals(loanTerm)
+                && loan.getFirstName().equals(firstName)
+                && loan.getLastName().equals(lastName)
+                && loan.getPersonalId().equals(personalId);
     }
 }

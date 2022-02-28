@@ -53,7 +53,7 @@ public class SearchLoansServiceTest {
         Mockito.when(repository.getLoansByApprovedStatus(false)).thenReturn(loans);
         SearchLoansResponse response = service.execute(request);
         assertEquals(response.getLoan().size(), 1);
-        assertEquals(response.getLoan().get(0).getIs_approved(), false);
+        assertEquals(response.getLoan().get(0).getIsApproved(), false);
 
     }
 
@@ -65,7 +65,7 @@ public class SearchLoansServiceTest {
         Mockito.when(repository.getLoansByApprovedStatus(true)).thenReturn(loans);
         SearchLoansResponse response = service.execute(request);
         assertEquals(response.getLoan().size(), 1);
-        assertEquals(response.getLoan().get(0).getIs_approved(), true);
+        assertEquals(response.getLoan().get(0).getIsApproved(), true);
 
     }
 
@@ -77,8 +77,8 @@ public class SearchLoansServiceTest {
         Mockito.when(repository.getApprovedOrUnapprovedLoansByPersonalId(false, "12356-923456")).thenReturn(loans);
         SearchLoansResponse response = service.execute(request);
         assertEquals(response.getLoan().size(), 1);
-        assertEquals(response.getLoan().get(0).getIs_approved(), false);
-        assertEquals(response.getLoan().get(0).getPersonal_id(), "12356-923456");
+        assertEquals(response.getLoan().get(0).getIsApproved(), false);
+        assertEquals(response.getLoan().get(0).getPersonalId(), "12356-923456");
 
     }
 
@@ -91,10 +91,10 @@ public class SearchLoansServiceTest {
         Mockito.when(repository.getApprovedOrUnapprovedLoansByPersonalId(true, "12356-923456")).thenReturn(loans);
         SearchLoansResponse response = service.execute(request);
         assertEquals(response.getLoan().size(), 2);
-        assertEquals(response.getLoan().get(0).getIs_approved(), true);
-        assertEquals(response.getLoan().get(0).getPersonal_id(), "12356-923456");
-        assertEquals(response.getLoan().get(1).getIs_approved(), true);
-        assertEquals(response.getLoan().get(1).getPersonal_id(), "12356-923456");
+        assertEquals(response.getLoan().get(0).getIsApproved(), true);
+        assertEquals(response.getLoan().get(0).getPersonalId(), "12356-923456");
+        assertEquals(response.getLoan().get(1).getIsApproved(), true);
+        assertEquals(response.getLoan().get(1).getPersonalId(), "12356-923456");
 
     }
 }

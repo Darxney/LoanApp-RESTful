@@ -15,136 +15,138 @@ public class Loan {
 
     @Id
     @Column(name = "loan_id")
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    //@GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "loanId_generator")
+    @SequenceGenerator(name="loanId_generator", sequenceName = "id_seq", allocationSize = 1)
     //correct namings loanId
-    private Long loan_id;
+    private Long loanId;
 
     @Column(name = "loan_amount",  nullable = false)
-    private BigDecimal loan_amount;
+    private BigDecimal loanAmount;
 
     @Column(name = "loan_term",  nullable = false)
-    private Date loan_term;
+    private Date loanTerm;
 
     //names and personal id can be in a different domain
     @Column(name = "first_name",  nullable = false)
-    private String first_name;
+    private String firstName;
 
     @Column(name = "last_name",  nullable = false)
-    private String last_name;
+    private String lastName;
 
     @Column(name = "personal_id",  nullable = false)
-    private String personal_id;
+    private String personalId;
 
     @Column(name = "is_approved",  nullable = false)
-    private boolean is_approved;
+    private boolean isApproved;
 
     public Loan() {
 
     }
 
-    public Loan(BigDecimal loan_amount, Date loan_term, String first_name, String last_name, String personal_id) {
-        this.loan_amount = loan_amount;
-        this.loan_term = loan_term;
-        this.first_name = first_name;
-        this.last_name = last_name;
-        this.personal_id = personal_id;
+    public Loan(BigDecimal loanAmount, Date loanTerm, String firstName, String lastName, String personalId) {
+        this.loanAmount = loanAmount;
+        this.loanTerm = loanTerm;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.personalId = personalId;
     }
     // there should be one constructor all else should be done through setters
 
-    public Loan(BigDecimal loan_amount, Date loan_term, String first_name, String last_name, String personal_id, boolean is_approved) {
-        this.loan_amount = loan_amount;
-        this.loan_term = loan_term;
-        this.first_name = first_name;
-        this.last_name = last_name;
-        this.personal_id = personal_id;
-        this.is_approved = is_approved;
-    }
-/*
-    public Loan(Long loan_id ,BigDecimal loan_amount, Date loan_term, String first_name, String last_name, String personal_id) {
-        this.loan_id = loan_id;
-        this.loan_amount = loan_amount;
-        this.loan_term = loan_term;
-        this.first_name = first_name;
-        this.last_name = last_name;
-        this.personal_id = personal_id;
+    public Loan(BigDecimal loanAmount, Date loanTerm, String firstName, String lastName, String personalId, boolean isApproved) {
+        this.loanAmount = loanAmount;
+        this.loanTerm = loanTerm;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.personalId = personalId;
+        this.isApproved = isApproved;
     }
 
-    public Loan(Long loan_id ,BigDecimal loan_amount, Date loan_term, String first_name, String last_name, String personal_id, boolean is_approved) {
-        this.loan_id = loan_id;
-        this.loan_amount = loan_amount;
-        this.loan_term = loan_term;
-        this.first_name = first_name;
-        this.last_name = last_name;
-        this.personal_id = personal_id;
-        this.is_approved = is_approved;
-    }*/
-
-    public Long getLoan_id() {
-        return loan_id;
+    public Loan(Long loanId ,BigDecimal loanAmount, Date loanTerm, String firstName, String lastName, String personalId) {
+        this.loanId = loanId;
+        this.loanAmount = loanAmount;
+        this.loanTerm = loanTerm;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.personalId = personalId;
     }
 
-    public void setLoan_id(Long loan_id) {
-        this.loan_id = loan_id;
+    public Loan(Long loanId ,BigDecimal loanAmount, Date loanTerm, String firstName, String lastName, String personalId, boolean isApproved) {
+        this.loanId = loanId;
+        this.loanAmount = loanAmount;
+        this.loanTerm = loanTerm;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.personalId = personalId;
+        this.isApproved = isApproved;
     }
 
-    public BigDecimal getLoan_amount() {
-        return loan_amount;
+    public Long getloanId() {
+        return loanId;
     }
 
-    public void setLoan_amount(BigDecimal loan_amount) {
-        this.loan_amount = loan_amount;
+    public void setloanId(Long loanId) {
+        this.loanId = loanId;
     }
 
-    public Date getLoan_term() {
-        return loan_term;
+    public BigDecimal getLoanAmount() {
+        return loanAmount;
     }
 
-    public void setLoan_term(Date loan_term) {
-        this.loan_term = loan_term;
+    public void setLoanAmount(BigDecimal loanAmount) {
+        this.loanAmount = loanAmount;
     }
 
-    public String getFirst_name() {
-        return first_name;
+    public Date getLoanTerm() {
+        return loanTerm;
     }
 
-    public void setFirst_name(String first_name) {
-        this.first_name = first_name;
+    public void setLoanTerm(Date loanTerm) {
+        this.loanTerm = loanTerm;
     }
 
-    public String getLast_name() {
-        return last_name;
+    public String getFirstName() {
+        return firstName;
     }
 
-    public void setLast_name(String last_name) {
-        this.last_name = last_name;
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
     }
 
-    public String getPersonal_id() {
-        return personal_id;
+    public String getLastName() {
+        return lastName;
     }
 
-    public void setPersonal_id(String personal_id) {
-        this.personal_id = personal_id;
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
     }
 
-    public boolean getIs_approved() {
-        return is_approved;
+    public String getPersonalId() {
+        return personalId;
     }
 
-    public void setIs_approved(boolean is_approved) {
-        this.is_approved = is_approved;
+    public void setPersonalId(String personalId) {
+        this.personalId = personalId;
+    }
+
+    public boolean getIsApproved() {
+        return isApproved;
+    }
+
+    public void setIsApproved(boolean isApproved) {
+        this.isApproved = isApproved;
     }
 
     @Override
     public String toString() {
         return "Loan{" +
-                "loan_id=" + loan_id +
-                ", loan_amount=" + loan_amount +
-                ", loan_term=" + loan_term +
-                ", first_name='" + first_name + '\'' +
-                ", last_name='" + last_name + '\'' +
-                ", personal_id='" + personal_id + '\'' +
-                ", is_approved=" + is_approved +
+                "loanId=" + loanId +
+                ", loanAmount=" + loanAmount +
+                ", loanTerm=" + loanTerm +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", personalId='" + personalId + '\'' +
+                ", isApproved=" + isApproved +
                 '}';
     }
 
@@ -153,11 +155,11 @@ public class Loan {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Loan loan = (Loan) o;
-        return is_approved == loan.is_approved && loan_id.equals(loan.loan_id) && loan_amount.equals(loan.loan_amount) && loan_term.equals(loan.loan_term) && first_name.equals(loan.first_name) && last_name.equals(loan.last_name) && personal_id.equals(loan.personal_id);
+        return isApproved == loan.isApproved && loanId.equals(loan.loanId) && loanAmount.equals(loan.loanAmount) && loanTerm.equals(loan.loanTerm) && firstName.equals(loan.firstName) && lastName.equals(loan.lastName) && personalId.equals(loan.personalId);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(loan_id, loan_amount, loan_term, first_name, last_name, personal_id, is_approved);
+        return Objects.hash(loanId, loanAmount, loanTerm, firstName, lastName, personalId, isApproved);
     }
 }

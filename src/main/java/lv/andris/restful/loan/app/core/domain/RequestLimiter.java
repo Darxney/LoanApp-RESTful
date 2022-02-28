@@ -14,7 +14,7 @@ public class RequestLimiter {
     private String country;
 
     @Column(name = "requests_made", nullable = false)
-    private int requests_made;
+    private int requestsMade;
 
     @Column(name = "expiry", nullable = false)
     private Timestamp expiry;
@@ -25,7 +25,7 @@ public class RequestLimiter {
 
     public RequestLimiter(String country, int requests_made, Timestamp expiry) {
         this.country = country;
-        this.requests_made = requests_made;
+        this.requestsMade = requests_made;
         this.expiry = expiry;
     }
 
@@ -38,11 +38,11 @@ public class RequestLimiter {
     }
 
     public int getRequests_made() {
-        return requests_made;
+        return requestsMade;
     }
 
     public void setRequests_made(int requests_made) {
-        this.requests_made = requests_made;
+        this.requestsMade = requests_made;
     }
 
     public Timestamp getExpiry() {
@@ -58,19 +58,19 @@ public class RequestLimiter {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         RequestLimiter that = (RequestLimiter) o;
-        return requests_made == that.requests_made && country.equals(that.country) && expiry.equals(that.expiry);
+        return requestsMade == that.requestsMade && country.equals(that.country) && expiry.equals(that.expiry);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(country, requests_made, expiry);
+        return Objects.hash(country, requestsMade, expiry);
     }
 
     @Override
     public String toString() {
         return "RequestLimiter{" +
                 "country='" + country + '\'' +
-                ", requests_made=" + requests_made +
+                ", requests_made=" + requestsMade +
                 ", expiry=" + expiry +
                 '}';
     }

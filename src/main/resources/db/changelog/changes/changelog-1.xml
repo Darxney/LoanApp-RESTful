@@ -6,6 +6,7 @@
                       http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.2.xsd">
 
     <changeSet author="Andris" id="1">
+        <createSequence sequenceName="id_seq" startValue="1" incrementBy="1"/>
         <createTable tableName="loans">
             <column autoIncrement="true" name="loan_id" type="BIGINT">
                 <constraints primaryKey="true"/>
@@ -32,7 +33,7 @@
         <insert
                 schemaName="loandb"
                  tableName="loans">
-            <column  name="loan_id"  value="1"/>
+            <column  name="loan_id"  valueSequenceNext="id_seq"/>
             <column  name="loan_amount"  value="2500.00"/>
             <column  name="loan_term"  value="2022-05-11"/>
             <column  name="first_name"  value="Andris"/>
@@ -43,7 +44,7 @@
         <insert
                 schemaName="loandb"
                 tableName="loans">
-            <column  name="loan_id"  value="2"/>
+            <column  name="loan_id"  valueSequenceNext="id_seq"/>
             <column  name="loan_amount"  value="2500.00"/>
             <column  name="loan_term"  value="2022-05-11"/>
             <column  name="first_name"  value="Andris"/>
