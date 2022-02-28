@@ -70,7 +70,7 @@ public class RequestLimiter {
     public String toString() {
         return "RequestLimiter{" +
                 "country='" + country + '\'' +
-                ", requests_made=" + requestsMade +
+                ", requestsMade=" + requestsMade +
                 ", expiry=" + expiry +
                 '}';
     }

@@ -44,7 +44,7 @@ public class PersonalId {
     @Override
     public String toString() {
         return "PersonalId{" +
-                "personal_id='" + personalId + '\'' +
+                "personalId='" + personalId + '\'' +
                 '}';
     }
 }

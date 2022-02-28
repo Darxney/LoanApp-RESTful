@@ -62,7 +62,7 @@ public class Loan {
         this.isApproved = isApproved;
     }
 
-    public Loan(Long loanId ,BigDecimal loanAmount, Date loanTerm, String firstName, String lastName, String personalId) {
+   /* public Loan(Long loanId ,BigDecimal loanAmount, Date loanTerm, String firstName, String lastName, String personalId) {
         this.loanId = loanId;
         this.loanAmount = loanAmount;
         this.loanTerm = loanTerm;
@@ -79,13 +79,13 @@ public class Loan {
         this.lastName = lastName;
         this.personalId = personalId;
         this.isApproved = isApproved;
-    }
+    }*/
 
-    public Long getloanId() {
+    public Long getLoanId() {
         return loanId;
     }
 
-    public void setloanId(Long loanId) {
+    public void setLoanId(Long loanId) {
         this.loanId = loanId;
     }
 
