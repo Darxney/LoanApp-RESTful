@@ -4,9 +4,10 @@ Usage:
 
 database setup will be completed by the application through liquibase and h2 inmemory database
 to access the database go to http://localhost:8080/h2-console/ 
-JDBC URL: jdbc:h2:mem:test
-User Name: sa
-Password: password
+
+JDBC URL: "jdbc:h2:mem:test"
+, User Name: "sa"
+, Password: "password"
 
 1. Once you have the project open in your IDE you can launch The application using LaunchApp.java to ensure 
 that everything is working correctly run the tests in the test directory.
