@@ -1,5 +1,5 @@
 # LoanApp-RESTful
-Application was Developed on Java 14.0.2 using IntelliJ idea IDE and Mysql database.
+Application was Developed on Java 17.0.2 using IntelliJ idea IDE and Mysql database.
 Usage:
 
 database setup will be completed by the application through liquibase and h2 inmemory database
